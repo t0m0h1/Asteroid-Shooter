@@ -27,12 +27,7 @@ while True:
     player.draw(screen, [380, 500]) #start position
 
     # move the player
-    for event in pygame.event.get():
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT] and player.rect.left > 0:
-            player.rect.x -= Player.speed
-        if keys[pygame.K_RIGHT] and player.rect.right < 800:
-            player.rect.x += player.speed
+    player.update()
 
     # Update the screen
     pygame.display.update()
