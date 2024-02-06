@@ -1,5 +1,5 @@
 import pygame
-
+from game import screen
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -10,10 +10,11 @@ class Player(pygame.sprite.Sprite):
         
 
     def update(self):
+        screen = screen
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT] and self.rect.left > 0:
+        if keys[pygame.K_LEFT] and self.rect.left > screen.get_rect().left:
             self.rect.x -= self.speed
-        if keys[pygame.K_RIGHT] and self.rect.right < 800:
+        if keys[pygame.K_RIGHT] and self.rect.right < screen.get_rect().right:
             self.rect.x += self.speed
 
     def draw(self, screen, position):
