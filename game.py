@@ -23,7 +23,10 @@ while True:
     screen.blit(background, (0, 0))
 
     # Set the player
-    player.draw(screen)
+    player.draw(screen, [380, 500]) #start position
+
+    # move the player
+    player.update()
 
     # Update the screen
     pygame.display.update()
