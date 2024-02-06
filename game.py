@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Space Shooter")
 
 # Set the background
-background = pygame.image.load("background.jpg")
+background = pygame.image.load("images/background.jpg")
 
 
 # Set the player
