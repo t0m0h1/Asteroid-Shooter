@@ -1,3 +1,5 @@
+import pygame
+
 class player:
     def __init__(self):
         self.x = 370

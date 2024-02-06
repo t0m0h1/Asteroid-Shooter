@@ -1,5 +1,6 @@
 import pygame
 import random
+from player import Player
 
 # Initialize the game
 pygame.init()
@@ -10,3 +11,25 @@ pygame.display.set_caption("Space Shooter")
 
 # Set the background
 background = pygame.image.load("background.jpg")
+
+
+# Set the player
+player = Player()
+
+while True:
+    # Set the background color
+    screen.fill((0, 0, 0))
+    # Set the background image
+    screen.blit(background, (0, 0))
+
+    # Set the player
+    player.draw(screen)
+
+    # Update the screen
+    pygame.display.update()
+
+    # Quit the game
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
