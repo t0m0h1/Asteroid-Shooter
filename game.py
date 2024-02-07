@@ -2,6 +2,7 @@ import pygame
 import random
 from player import Player
 from laser import Laser
+from asteroid import Asteroid
 
 # Initialize the game
 pygame.init()
@@ -21,6 +22,12 @@ all_sprites = pygame.sprite.Group()
 lasers = pygame.sprite.Group()
 asteroids = pygame.sprite.Group()
 
+
+
+for i in range(8):
+    asteroid = Asteroid()
+    all_sprites.add(asteroid)
+    asteroids.add(asteroid)
 
 
 # Instantiate the player
@@ -56,6 +63,8 @@ while True:
         laser.update()
         if laser.rect.bottom < 0:
             laser.kill()
+
+    asteroids.update()
 
 
         # Update the screen
