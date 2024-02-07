@@ -20,5 +20,5 @@ class Player(pygame.sprite.Sprite):
                 self.rect.right = 800  # Limit movement to the right edge
 
 
-        def draw(self, screen):
-            screen.blit(self.image, self.rect) # Draw the player on the screen
+    def draw(self, screen):
+        screen.blit(self.image, self.rect) # Draw the player on the screen
