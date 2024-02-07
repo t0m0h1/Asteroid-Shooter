@@ -41,7 +41,23 @@ while True:
     # move the player
     player.update()
 
-    # Update the screen
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_SPACE]:
+        laser = Laser(player.rect.centerx, player.rect.top)
+        all_sprites.add(laser)
+        lasers.add(laser)
+
+    # Update the lasers and draw them
+    all_sprites.update()
+    all_sprites.draw(screen)
+    
+    for laser in lasers:
+        laser.update()
+        if laser.rect.bottom < 0:
+            laser.kill()
+
+
+        # Update the screen
     pygame.display.flip()
     clock.tick(60)
 
@@ -54,8 +70,4 @@ while True:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 quit()
-            if event.key == pygame.K_SPACE:
-                laser = Laser(player.rect.centerx, player.rect.top)
-                all_sprites.add(laser)
-                lasers.add(laser)
-            # Handle other key events if needed
+           
