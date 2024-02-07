@@ -43,4 +43,6 @@ while True:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 quit()
+            if event.key == pygame.K_SPACE:
+                player.shoot_laser()
             # Handle other key events if needed

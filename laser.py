@@ -1,4 +1,7 @@
-import pygame
+import pygame 
+
+# pygame surface to create the laser
+
 
 class Laser(pygame.sprite.Sprite):
     def __init__(self, x, y):

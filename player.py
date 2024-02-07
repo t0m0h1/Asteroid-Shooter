@@ -1,4 +1,5 @@
 import pygame
+from laser import Laser
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -26,3 +27,7 @@ class Player(pygame.sprite.Sprite):
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+
+    def shoot_laser(self):
+        laser = Laser(self.rect.centerx, self.rect.top)
+        return laser
