@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.speed = 5
 
         # Set initial position at the middle and lower part of the screen
-        self.rect.midbottom = (400, 600)  # Adjust the x-coordinate as needed
+        self.rect.midbottom = (400, 550)  # Adjust the x-coordinate as needed
 
         # midbottom means the centre of the bottom edge of the rectangle
 
