@@ -16,9 +16,10 @@ background = pygame.image.load("images/background.jpg")
 clock = pygame.time.Clock()
 
 
-# sprite group for the player's lasers
+# sprite groups for all sprites, lasers, and asteroids
 all_sprites = pygame.sprite.Group()
 lasers = pygame.sprite.Group()
+asteroids = pygame.sprite.Group()
 
 
 
