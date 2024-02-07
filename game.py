@@ -25,8 +25,7 @@ while True:
     screen.blit(background, (0, 0))
 
     # Set the player
-    middle = [375, 500]
-    player.draw(screen, middle) #start position
+    player.draw(screen) #start position
 
     # move the player
     player.update()
