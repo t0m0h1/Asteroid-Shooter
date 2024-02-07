@@ -6,7 +6,7 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load("images/player.png")
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
-        self.speed = 5
+        self.speed = 6
 
         # Set initial position at the middle and lower part of the screen
         self.rect.midbottom = (400, 550)  # Adjust the x-coordinate as needed
