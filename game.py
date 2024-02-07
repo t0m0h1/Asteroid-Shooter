@@ -12,10 +12,11 @@ pygame.display.set_caption("Space Shooter")
 # Set the background
 background = pygame.image.load("images/background.jpg")
 
-
+clock = pygame.time.Clock()
 
 # Set the player
 player = Player()
+
 
 while True:
     # Set the background color
@@ -30,10 +31,16 @@ while True:
     player.update()
 
     # Update the screen
-    pygame.display.update()
+    pygame.display.flip()
+    clock.tick(60)
 
     # Quit the game
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             quit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                quit()
+            # Handle other key events if needed
