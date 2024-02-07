@@ -10,7 +10,7 @@ class Laser(pygame.sprite.Sprite):
         self.image.fill((255, 0, 0))  # Fill the laser surface with a red color
         self.rect = self.image.get_rect()
         self.rect.midbottom = (x, y)
-        self.speed = 6
+        self.speed = 4
 
     def update(self):
         self.rect.y -= self.speed
