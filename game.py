@@ -18,7 +18,7 @@ clock = pygame.time.Clock()
 
 # sprite group for the player's lasers
 all_sprites = pygame.sprite.Group()
-player_lasers = pygame.sprite.Group()
+lasers = pygame.sprite.Group()
 
 
 
@@ -56,6 +56,6 @@ while True:
                 quit()
             if event.key == pygame.K_SPACE:
                 laser = Laser(player.rect.centerx, player.rect.top)
-                    all_sprites.add(laser)
-                    lasers.add(laser)
+                all_sprites.add(laser)
+                lasers.add(laser)
             # Handle other key events if needed
