@@ -1,6 +1,7 @@
 import pygame
 import random
 from player import Player
+from laser import Laser
 
 # Initialize the game
 pygame.init()
@@ -14,8 +15,18 @@ background = pygame.image.load("images/background.jpg")
 
 clock = pygame.time.Clock()
 
-# Set the player
+
+# sprite group for the player's lasers
+all_sprites = pygame.sprite.Group()
+player_lasers = pygame.sprite.Group()
+
+
+
+# Instantiate the player
 player = Player()
+
+
+
 
 
 while True:
@@ -44,5 +55,7 @@ while True:
                 pygame.quit()
                 quit()
             if event.key == pygame.K_SPACE:
-                player.shoot_laser()
+                laser = Laser(player.rect.centerx, player.rect.top)
+                    all_sprites.add(laser)
+                    lasers.add(laser)
             # Handle other key events if needed
