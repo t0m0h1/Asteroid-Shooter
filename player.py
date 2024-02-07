@@ -19,5 +19,5 @@ class Player(pygame.sprite.Sprite):
             if self.rect.right > 800:
                 self.rect.right = 800  # Limit movement to the right edge
 
-    def draw(self, screen, start_position=(400, 500):
+    def draw(self, screen, start_position):
         screen.blit(self.image, start_position) # Set the start position of the player
