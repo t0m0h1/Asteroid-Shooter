@@ -16,7 +16,9 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_RIGHT] and self.rect.right < 800:
             self.rect.x += self.speed
 
+
     def draw(self, screen, position):
+        self.rect.topleft = position
         screen.blit(self.image, self.rect)
-        self.rect.x = position[0]
-        self.rect.y = position[1]
+        # changed the draw method to accept the screen and position as arguments
+
