@@ -81,7 +81,7 @@ while True:
 
     # Draw the score
     score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
-    screen.blit(score_text, (10, 100)) # this will blit the score on the screen
+    screen.blit(score_text, (10, 500)) # this will blit the score on the screen
 
                 
     # update the remaining asteroids
