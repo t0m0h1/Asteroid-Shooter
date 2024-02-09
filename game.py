@@ -57,11 +57,17 @@ while True:
     player.update()
 
 
+
+
+
+    # Check for the space bar being pressed to shoot a laser
     keys = pygame.key.get_pressed()
     if keys[pygame.K_SPACE]:
         laser = Laser(player.rect.centerx, player.rect.top)
         all_sprites.add(laser)
         lasers.add(laser)
+
+
 
     # Update the lasers and draw them
     all_sprites.update()
@@ -71,6 +77,8 @@ while True:
         laser.update()
         if laser.rect.bottom < 0:
             laser.kill() # Remove the laser if it goes off the screen
+
+
 
 
     # Check for collisions between asteroids and lasers, the first True removes the laser, the second True removes the asteroid
@@ -91,8 +99,10 @@ while True:
             asteroid_hit.kill()
 
             # limit number of asteroids on screen
-            if len(asteroids) >= 20:
+            if len(asteroids) >= 15:
                 asteroid.kill()
+
+
 
     # Draw the score
     score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
