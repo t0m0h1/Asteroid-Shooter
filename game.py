@@ -10,6 +10,7 @@ pygame.init()
 # Set the screen size
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Space Shooter")
+font = pygame.font.Font(None, 36)
 
 # Set the background
 background = pygame.image.load("images/background.jpg")
@@ -49,6 +50,9 @@ while True:
     # move the player
     player.update()
 
+    # Check for collisions between asteroids and lasers
+    collisions = pygame.sprite.groupcollide(asteroids, lasers, True, True)
+
     keys = pygame.key.get_pressed()
     if keys[pygame.K_SPACE]:
         laser = Laser(player.rect.centerx, player.rect.top)
@@ -64,6 +68,13 @@ while True:
         if laser.rect.bottom < 0:
             laser.kill()
 
+    # asteroid collision detection
+    for laser, asteroids in collisions.items():
+        for asteroid in asteroids:
+            if collisions:
+                asteroid.kill()
+                
+    # update the remaining asteroids
     asteroids.update()
 
 
@@ -80,4 +91,3 @@ while True:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 quit()
-           
