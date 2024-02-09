@@ -12,7 +12,7 @@ screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Space Shooter")
 
 score = 0
-score_font = pygame.font.Font(None, 36)
+score_font = pygame.font.Font(None, 40)
 
 # Set the background
 background = pygame.image.load("images/background.jpg")
@@ -80,8 +80,8 @@ while True:
         asteroids.add(asteroid)
 
     # Draw the score
-    score_text = score_font.render(str(score), True, (255, 255, 255))
-    screen.blit(score_text, (10, 10)) # this will blit the score on the screen
+    score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
+    screen.blit(score_text, (10, 100)) # this will blit the score on the screen
 
                 
     # update the remaining asteroids
