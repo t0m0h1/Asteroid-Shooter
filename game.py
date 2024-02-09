@@ -3,6 +3,7 @@ import random
 from player import Player
 from laser import Laser
 from asteroid import Asteroid
+from explosion import Explosion
 
 # Initialize the game
 pygame.init()
@@ -66,10 +67,10 @@ while True:
     for laser in lasers:
         laser.update()
         if laser.rect.bottom < 0:
-            laser.kill()
+            laser.kill() # Remove the laser if it goes off the screen
 
 
-    # Check for collisions between asteroids and lasers
+    # Check for collisions between asteroids and lasers, the first True removes the laser, the second True removes the asteroid
     collisions = pygame.sprite.groupcollide(asteroids, lasers, True, True)
 
     # If there is a collision, add a new asteroid and update the score
@@ -79,9 +80,14 @@ while True:
         all_sprites.add(asteroid)
         asteroids.add(asteroid)
 
+        for asteroid in collisions[laser]:
+            explosion = Explosion(asteroid.rect.center)
+            all_sprites.add(explosion)
+            asteroid.kill()
+
     # Draw the score
     score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
-    screen.blit(score_text, (15, 540)) # this will blit the score on the screen
+    screen.blit(score_text, (15, 550)) # this will blit the score on the screen
 
                 
     # update the remaining asteroids
