@@ -4,6 +4,7 @@ from player import Player
 from laser import Laser
 from asteroid import Asteroid
 from explosion import Explosion
+import time
 
 # Initialize the game
 pygame.init()
@@ -83,6 +84,7 @@ while True:
         for asteroid in collisions[laser]:
             explosion = Explosion(asteroid.rect.center)
             all_sprites.add(explosion)
+            time.sleep(1)
             asteroid.kill()
 
     # Draw the score
