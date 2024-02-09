@@ -4,7 +4,7 @@ from player import Player
 from laser import Laser
 from asteroid import Asteroid
 from explosion import Explosion
-import time
+
 
 # Initialize the game
 pygame.init()
@@ -26,6 +26,8 @@ clock = pygame.time.Clock()
 all_sprites = pygame.sprite.Group()
 lasers = pygame.sprite.Group()
 asteroids = pygame.sprite.Group()
+explosions = pygame.sprite.Group()
+
 
 
 
@@ -81,11 +83,16 @@ while True:
         all_sprites.add(asteroid)
         asteroids.add(asteroid)
 
-        for asteroid in collisions[laser]:
-            explosion = Explosion(asteroid.rect.center)
-            all_sprites.add(explosion)
-            time.sleep(1)
-            asteroid.kill()
+
+        for asteroid_hit in collisions:
+            asteroid = Asteroid()
+            all_sprites.add(asteroid)
+            asteroids.add(asteroid)
+            asteroid_hit.kill()
+
+            # limit number of asteroids on screen
+            if len(asteroids) >= 20:
+                asteroid.kill()
 
     # Draw the score
     score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
@@ -94,6 +101,11 @@ while True:
                 
     # update the remaining asteroids
     asteroids.update()
+
+
+    # draw exoplosions
+    for explosion in explosions:
+        explosion.update()
 
 
         # Update the screen
