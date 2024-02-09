@@ -50,8 +50,6 @@ while True:
     # move the player
     player.update()
 
-    # Check for collisions between asteroids and lasers
-    collisions = pygame.sprite.groupcollide(asteroids, lasers, True, True)
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_SPACE]:
@@ -68,11 +66,10 @@ while True:
         if laser.rect.bottom < 0:
             laser.kill()
 
-    # asteroid collision detection
-    for laser, asteroids in collisions.items():
-        for asteroid in asteroids:
-            if collisions:
-                asteroid.kill()
+
+    # Check for collisions between asteroids and lasers
+    collisions = pygame.sprite.groupcollide(asteroids, lasers, True, True)
+
                 
     # update the remaining asteroids
     asteroids.update()
