@@ -1,7 +1,7 @@
 import pygame
 
 class Explosion(pygame.sprite.Sprite):
-    def __init__(self, center, size=20, color=(255, 0, 0)):
+    def __init__(self, center, size=20, color=(255, 255, 0)):
         super().__init__()
         self.size = size
         self.image = pygame.Surface((size * 2, size * 2), pygame.SRCALPHA)
