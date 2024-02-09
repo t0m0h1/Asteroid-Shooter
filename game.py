@@ -93,9 +93,9 @@ while True:
 
 
         for asteroid_hit in collisions:
-            asteroid = Asteroid()
-            all_sprites.add(asteroid)
-            asteroids.add(asteroid)
+            explosion = Explosion(asteroid_hit.rect.center)
+            all_sprites.add(explosion)
+            explosions.add(explosion)
             asteroid_hit.kill()
 
             # limit number of asteroids on screen
