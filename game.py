@@ -10,7 +10,9 @@ pygame.init()
 # Set the screen size
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Space Shooter")
-font = pygame.font.Font(None, 36)
+
+score = 0
+score_font = pygame.font.Font(None, 36)
 
 # Set the background
 background = pygame.image.load("images/background.jpg")
@@ -69,6 +71,17 @@ while True:
 
     # Check for collisions between asteroids and lasers
     collisions = pygame.sprite.groupcollide(asteroids, lasers, True, True)
+
+    # If there is a collision, add a new asteroid and update the score
+    for collision in collisions:
+        score += 1
+        asteroid = Asteroid()
+        all_sprites.add(asteroid)
+        asteroids.add(asteroid)
+
+    # Draw the score
+    score_text = score_font.render(str(score), True, (255, 255, 255))
+    screen.blit(score_text, (10, 10)) # this will blit the score on the screen
 
                 
     # update the remaining asteroids
